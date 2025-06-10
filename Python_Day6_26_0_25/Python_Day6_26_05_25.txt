@@ -1,0 +1,299 @@
+File Extension	Description
+.py	Python source code file
+.pyc	Compiled Python bytecode
+
+🧠 Getting Memory Size of an Object in Python
+----------------------------------------------
+Use sys.getsizeof() function from the sys module.
+
+It returns the size of an object in bytes.
+
+Note: It returns the size of the object itself, not the memory occupied by objects it refers to.
+
+🧩 Module
+----------
+A module is a single .py file that contains Python functions, classes, and variables.
+It is used to organize code and reuse it in other Python programs.
+You can import a module using import:
+
+python
+Copy
+Edit
+import mymodule
+from mymodule import my_function
+
+📦 Package
+-----------
+A package is a directory (folder) that contains multiple modules and an __init__.py file.
+The __init__.py file (can be empty) marks the directory as a Python package.
+It helps in organizing large codebases.
+
+Example structure:
+
+mypackage/
+│
+├── __init__.py
+├── module1.py
+└── module2.py
+Usage:
+
+python
+Copy
+Edit
+from mypackage import module1
+
+📜 __all__
+-----------
+__all__ is a list defined in a module/package to specify which names should be imported when from module import * is used.
+
+Example in mymodule.py:
+
+python
+Copy
+Edit
+__all__ = ['func1', 'ClassA']
+
+def func1():
+    pass
+
+def func2():
+    pass
+
+class ClassA:
+    pass
+
+Now, from mymodule import * will only import func1 and ClassA, not func2.
+
+🧭 Class Method Decorator - @classmethod
+-----------------------------------------
+A class method is a method that receives the class as the first argument, not the instance.
+
+It's defined using the @classmethod decorator.
+
+Used when the method needs to access or modify class-level data.
+
+Example:
+
+python
+Copy
+Edit
+class MyClass:
+    count = 0
+
+    @classmethod
+    def increment_count(cls):
+        cls.count += 1
+Usage:
+
+python
+Copy
+Edit
+MyClass.increment_count()
+
+Higher Order Functions
+----------------------
+filter()
+sorted()
+
+
+🔧 Python Regular Expressions (re module)
+
+✅ 1. Basic Functions
+import re
+
+Function           Description
+-------------      ----------------------------------------------------
+re.match()         Matches the pattern at the beginning of the string
+re.search()        Searches anywhere in the string
+re.findall()       Returns a list of all matches
+re.finditer()      Returns an iterator of match objects
+re.sub()           Replaces matches with another string
+re.split()         Splits string using the pattern
+re.compile()       Compiles pattern into a regex object (for reuse)
+
+
+🔠 2. Common Metacharacters and Syntax
+
+Symbol   Meaning                          Example
+-------  -------------------------------  -------------------------------
+.        Any character except newline     a.b matches acb, a9b
+^        Start of string                  ^a matches strings starting with a
+$        End of string                    b$ matches strings ending with b
+*        0 or more of previous            ab* matches a, ab, abb
++        1 or more of previous            ab+ matches ab, abb
+?        0 or 1 of previous               ab? matches a, ab
+{n}      Exactly n repetitions            a{3} matches aaa
+{n,}     n or more repetitions            a{2,} matches aa, aaa
+{n,m}    Between n and m repetitions      a{2,4} matches aa, aaa, aaaa
+[]       Character set                    [abc] matches a, b, or c
+[^]      Negated character set            [^0-9] matches non-digits
+|        OR operator                      a|b matches a or b
+()       Grouping and capturing           (abc)+ matches repeated abc
+\        Escape special characters        \. matches a literal dot '.'
+
+
+🔍 3. Special Sequences
+
+Pattern   Description
+--------  -----------------------------------
+\d        Digit [0-9]
+\D        Non-digit
+\w        Word character [a-zA-Z0-9_]
+\W        Non-word character
+\s        Whitespace
+\S        Non-whitespace
+\b        Word boundary
+\B        Non-word boundary
+
+
+🧪 4. Flags
+
+Flag                      Description
+------------------------  -----------------------------------------------------
+re.IGNORECASE or re.I     Ignore case
+re.MULTILINE or re.M      ^ and $ match start/end of each line
+re.DOTALL or re.S         . matches newline as well
+re.VERBOSE or re.X        Allows whitespace and comments in pattern
+re.ASCII or re.A          Makes \w, \d, etc. match ASCII only
+
+Example:
+re.findall(r'^a.*b$', text, re.MULTILINE)
+
+
+🧱 5. Groups and Backreferences
+
+Syntax         Meaning
+-------------  --------------------------------------
+(abc)          Capturing group
+(?:abc)        Non-capturing group
+(?P<name>...)  Named group
+\1, \2, ...    Backreference to group 1, 2, etc.
+
+Example:
+match = re.search(r'(\w+)-(\d+)', 'abc-123')
+print(match.group(1))  # abc
+print(match.group(2))  # 123
+
+
+🧪 Example Snippets
+
+re.match(r'Hello', 'Hello World')       # Match at beginning
+re.search(r'\d+', 'Age: 24')            # Finds '24'
+re.findall(r'\b\w+\b', 'Hi there!')     # ['Hi', 'there']
+re.sub(r'\s+', '-', 'Hello World')      # 'Hello-World'
+
+🔁 map(function, iterable)
+Return type: map object (an iterator)
+
+You usually convert it to a list or another iterable:
+
+Example:
+result = map(str.upper, ['a', 'b', 'c'])
+print(list(result))  # ['A', 'B', 'C']
+
+
+🔍 filter(function, iterable)
+Return type: filter object (an iterator)
+
+Use list() to see the filtered results:
+
+Example:
+result = filter(lambda x: x % 2 == 0, [1, 2, 3, 4])
+print(list(result))  # [2, 4]
+
+
+➕ reduce(function, iterable[, initializer])
+Return type: Single accumulated value
+
+Note: reduce() is from the functools module
+
+Example:
+from functools import reduce
+result = reduce(lambda x, y: x + y, [1, 2, 3, 4])
+print(result)  # 10
+
+
+📋 Summary:
+
+Function     -> Return Type
+----------------------------
+map()        -> map object (iterator)
+filter()     -> filter object (iterator)
+reduce()     -> final value (int, str, etc.)
+
+➕ reduce(function, iterable[, initializer])
+
+To use reduce(), you must import it from the functools module:
+
+from functools import reduce
+
+Example:
+result = reduce(lambda x, y: x + y, [1, 2, 3, 4])
+print(result)  # Output: 10
+
+🔗 Object Reference and Argument Passing in Python
+
+- Python variables hold references to objects, not the actual objects themselves.
+- When you pass a variable to a function, you are passing the reference to the object.
+- This is sometimes described as "call by object reference" or "call by sharing".
+
+📌 Key points:
+- Python does NOT have call by reference (like C++ references or pointers).
+- Python does NOT do call by value in the traditional sense (like C passing copies).
+- Instead, the function gets a reference to the same object.
+- If the object is mutable (e.g., list, dict), changes inside the function affect the original object.
+- If the object is immutable (e.g., int, str, tuple), reassignment inside the function does NOT affect the original object.
+
+Example:
+
+def modify_list(lst):
+    lst.append(4)  # modifies original list because list is mutable
+
+def modify_int(x):
+    x = x + 1  # does NOT modify original integer because int is immutable
+
+my_list = [1, 2, 3]
+modify_list(my_list)
+print(my_list)  # Output: [1, 2, 3, 4]
+
+my_num = 10
+modify_int(my_num)
+print(my_num)   # Output: 10  (unchanged)
+
+
+json.load and json.loads are functions from Python's json module used for parsing JSON data.
+
+json.load():
+-----------
+- Parses JSON data from a file-like object (e.g., an open file).
+- Reads the entire JSON content from the file and converts it into a Python object (such as a dictionary or list).
+import json
+
+# Example for json.load (parsing JSON from a file)
+with open('data.json', 'w') as f:
+    f.write('{"name": "Alice", "age": 30}')
+
+with open('data.json', 'r') as f:
+    data_from_file = json.load(f)
+
+print(data_from_file)
+# Output:
+# {'name': 'Alice', 'age': 30}
+
+
+json.loads():
+------------
+- Parses JSON data from a string.
+- Takes a JSON formatted string and converts it into a Python object.
+
+import json
+
+# Example for json.loads (parsing JSON from a string)
+json_string = '{"name": "Bob", "age": 25}'
+data_from_string = json.loads(json_string)
+
+print(data_from_string)
+# Output:
+# {'name': 'Bob', 'age': 25}
+
+Usage differs based on the source of the JSON data: from a file (json.load) or from a string (json.loads).

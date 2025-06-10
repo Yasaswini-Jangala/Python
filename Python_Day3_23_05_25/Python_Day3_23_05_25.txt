@@ -1,0 +1,7 @@
+enumerate -> It is a built in function that adds a counter to an iterable (list, tuple or string) and returns the enumerate object which can be looped over to get both index and value in each iteration. It's start value is always 0.
+
+difference b/w iterator and enumerate
+
+When to use iterator
+--------------------
+track position of item while iterating

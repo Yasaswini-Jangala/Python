@@ -1,0 +1,150 @@
+🔤 STRING FUNCTIONS IN PYTHON (THEORY)
+---------------------------------------
+✅ Case Conversion
+- upper(): Converts all characters to uppercase.
+- lower(): Converts all characters to lowercase.
+- swapcase(): Swaps uppercase to lowercase and vice versa.
+- title(): Capitalizes the first letter of each word.
+✅ String Checks (Returns True/False)
+- isupper(): Checks if all characters are uppercase.
+- islower(): Checks if all characters are lowercase.
+- istitle(): Checks if string is in title case.
+- isdigit(): Checks if string has only digits.
+- isalpha(): Checks if string has only alphabets.
+- isalnum(): Checks if string has only letters and numbers.
+- isspace(): Checks if string has only whitespace.
+✅ Trimming & Replacing
+- strip(): Removes spaces from both ends.
+- lstrip(): Removes spaces from the left.
+- rstrip(): Removes spaces from the right.
+- replace(old, new): Replaces parts of the string.
+✅ Splitting & Joining
+- split(separator): Splits a string into a list using a separator.
+- join(list): Joins elements of a list into a single string.
+✅ Searching in Strings
+- startswith(): Checks if string starts with specified text.
+- endswith(): Checks if string ends with specified text.
+- 'substring' in string: Checks if a substring is present.
+- Note: Python does not have contains() function.
+🧮 BUILT-IN FUNCTIONS (THEORY)
+- len(): Returns the length of a string or list.
+- type(): Returns the data type.
+- print(): Displays output.
+- input(): Accepts user input.
+- int(), str(), float(): Used for type conversion.
+
+🚀 IIFE – Immediately Invoked Function Expression
+--------------------------------------------------
+- A function that is defined and immediately called.
+- Commonly used with lambda for short, one-time operations.
+- Example: (lambda x: x * x)(5) returns 25.
+
+📦 VARIABLE-LENGTH PARAMETERS
+
+*args:
+- Accepts any number of positional arguments as a tuple.
+- Used when the number of inputs is not known in advance.
+
+**kwargs:
+- Accepts any number of keyword arguments as a dictionary.
+- Used for functions that take named arguments dynamically.
+
+🔍 REGULAR EXPRESSIONS (REGEX)
+
+- Used for pattern matching in strings.
+- Requires: import re
+
+Common Functions:
+- re.match(): Checks pattern only at the beginning.
+- re.search(): Searches for pattern anywhere in the string.
+- re.findall(): Returns all non-overlapping matches as a list.
+
+Common Patterns:
+- \d: Matches a digit.
+- \w: Matches a letter, digit, or underscore.
+- \b: Word boundary.
+- a|b: Matches either a or b.
+- [a-z]: Matches any lowercase letter.
+- \d{3}: Matches exactly 3 digits.
+
+🔸 TUPLE VS NAMEDTUPLE (THEORY)
+
+TUPLE:
+- Immutable.
+- Elements are accessed by index.
+- No field names → less readable.
+- Good for simple collections (like coordinates, RGB).
+
+NAMEDTUPLE:
+- From collections module.
+- Immutable like tuples.
+- Elements can be accessed by field name and index.
+- Improves readability and structure.
+- Ideal for records like Student, Employee, etc.
+
+
+🔑 TOKENS IN PROGRAMMING (THEORY)
+
+Definition:
+- A **token** is the smallest individual unit or element in a program that has meaning to the compiler/interpreter.
+- Tokens are like building blocks of code.
+
+Types of Tokens in Python:
+
+1. 🔤 Keywords
+   - Reserved words that have special meaning.
+   - Cannot be used as identifiers (variable/function names).
+   - Examples: `if`, `else`, `while`, `for`, `def`, `return`, `import`, `class`, etc.
+
+2. 🔠 Identifiers
+   - Names used for variables, functions, classes, etc.
+   - Must begin with a letter (A–Z, a–z) or underscore (_) followed by letters, digits, or underscores.
+   - Example: `student_name`, `x`, `calculateSum`
+
+3. 🔢 Literals
+   - Constant values assigned to variables or used directly.
+   - Types:
+     - String literals: `"hello"`, `'a'`
+     - Numeric literals: `10`, `3.14`
+     - Boolean literals: `True`, `False`
+     - Special literal: `None`
+
+4. ➕ Operators
+   - Symbols that perform operations on variables and values.
+   - Types:
+     - Arithmetic: `+`, `-`, `*`, `/`, `%`
+     - Relational: `==`, `!=`, `>`, `<`, `>=`, `<=`
+     - Logical: `and`, `or`, `not`
+     - Assignment: `=`, `+=`, `-=`, `*=`, `/=`
+     - Bitwise: `&`, `|`, `^`, `~`, `<<`, `>>`
+
+5. 🧱 Delimiters / Separators
+   - Symbols used to separate code elements.
+   - Examples: `()`, `{}`, `[]`, `,`, `:`, `;`, `.`
+
+6. 💬 Comments
+   - Not tokens for execution but used for documentation.
+   - Single-line: `# this is a comment`
+   - Multi-line: Triple quotes `''' comment '''` or `""" comment """`
+
+VARIABLE vs IDENTIFIER (THEORY)
+
+VARIABLE:
+- A variable is a **named memory location** used to store data that can change during program execution.
+- It holds values like numbers, strings, lists, etc.
+- Example: In `x = 5`, `x` is a variable storing the value 5.
+- Variables have a **value** that can be updated or modified.
+
+IDENTIFIER:
+- An identifier is the **name** used to identify variables, functions, classes, or other user-defined elements in code.
+- It is a sequence of characters (letters, digits, underscores) following naming rules.
+- It **names** variables, but an identifier itself is not the variable.
+- Example: In `def my_func():`, `my_func` is an identifier naming a function.
+
+Summary:
+- **Identifier** is the name.
+- **Variable** is the named storage that holds a value.
+- Every variable uses an identifier, but identifiers also name other entities like functions and classes.
+- An identifier is a **name** for variables, functions, classes, etc.
+- A variable is a **named container** holding data.
+- Identifiers name variables, but not all identifiers are variables.

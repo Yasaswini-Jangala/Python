@@ -1,0 +1,29 @@
+While Loop
+
+Comprehension
+
+Functions
+
+Lambda Functions
+---------------- 
+A Lambda Function in Python is an anonymous function, meaning it doesn't have a name. It is used to create small single-use functions for short tasks. A Lambda function can take any number of arguments but only contains a single expression.
+
+Syntax
+------
+lambda arguments: expression
+	lambda -> It is the keyword used to define a Lambda Function
+	arguments -> They are the inputs that the function takes(can be zero or more)	
+	expression -> It is the logic that the Lambda function evaluates and returns.
+
+Lambda functions are commonly used with built-in functions like map(), filter(), sorted(), reduce() etc, for functional programming.
+1. map()
+	The map function applies a function to all items in an input list and returns an iterable map object. You can use Lambda Functions with map() to perform operations on each item of a list.
+
+2. filter()
+	The filter function filters items based on a condition defined by the function. You can use Lambda functions with filter() to filter the elements that satisfy a condition.
+
+3. sorted()
+	The sorted function is used to sort an iterable. You can use lambda Function with sorted to customie sorting behaviour.  
+
+4. reduce()	
+	The reduce function
