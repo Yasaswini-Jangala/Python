@@ -1,0 +1,34 @@
+Closure
+-------
+- A closure is a function that retains access to variables from its enclosing scope, even after that scope has finished execution.
+- Useful for maintaining state in callbacks or decorators.
+- Enables function factories and data hiding.
+
+Generators
+----------
+- Special functions that return an iterator using the 'yield' keyword.
+- Produce values one at a time, pausing after each yield.
+- Ideal for handling large datasets efficiently with minimal memory usage.
+- Can be iterated using a loop (e.g., for loop).
+- Example:
+    def gen():
+        yield 1
+        yield 2
+
+Coding Standards
+----------------
+- Guidelines to write readable, maintainable, and consistent code.
+- Follow PEP 8 for Python.
+- Use meaningful names and consistent indentation.
+- Keep functions small and focused.
+- Example format:
+    def function_name(arg1, arg2):
+        return arg1, arg2
+
+SOLID Principles
+----------------
+1. **Single Responsibility Principle** – A class or function should have one job or responsibility.
+2. **Open/Closed Principle** – Code should be open to extension but closed to modification.
+3. **Liskov Substitution Principle** – Subclasses should be substitutable for their parent classes.
+4. **Interface Segregation Principle** – Prefer many specific interfaces over a single general-purpose one.
+5. **Dependency Inversion Principle** – Depend on abstractions, not concrete implementations.

@@ -1,0 +1,145 @@
+🟢 1. Python Basics
+Variables, Data Types (int, float, str, bool)
+
+Type Casting and Type Checking
+
+Input/Output (input(), print())
+
+Operators (Arithmetic, Logical, Comparison, Bitwise)
+
+Control Flow:
+
+if, elif, else
+
+for, while loops
+
+break, continue, pass
+
+Functions:
+
+def, arguments, return
+
+Default & keyword arguments
+
+*args, **kwargs
+
+Built-in Functions (len(), range(), type(), etc.)
+
+🟡 2. Data Structures
+Lists (methods, slicing, comprehensions)
+
+Tuples
+
+Dictionaries (keys, values, items, comprehension)
+
+Sets (operations, uniqueness, immutability)
+
+Stacks and Queues (using list or collections)
+
+🟠 3. Functions and Functional Programming
+Lambda Functions
+
+map(), filter(), reduce() (from functools)
+
+zip(), enumerate()
+
+Recursion
+
+🔵 4. Object-Oriented Programming (OOP)
+Classes and Objects
+
+__init__, __str__, __repr__, etc.
+
+Instance vs Class vs Static Methods
+
+Inheritance, Polymorphism, Encapsulation
+
+Class and Static Methods
+
+Special (magic/dunder) methods: __len__, __eq__, etc.
+
+Abstract Classes (abc module)
+
+🟣 5. Modules and Packages
+Creating and importing modules
+
+Python Package Structure (__init__.py)
+
+Standard Library (math, datetime, os, sys, etc.)
+
+Third-party packages with pip
+
+🔶 6. Exception Handling
+try, except, finally, else
+
+Built-in exceptions
+
+Custom exceptions
+
+🔷 7. File Handling
+Reading/Writing files (open, read, write)
+
+Working with with context manager
+
+Working with CSV, JSON
+
+🟤 8. Regular Expressions (re module)
+match, search, findall, sub
+
+Metacharacters, character classes, quantifiers
+
+Grouping, backreferences
+
+⚫ 9. Advanced Python Concepts
+Decorators
+
+Generators & yield
+
+Iterators & __iter__, __next__
+
+Closures
+
+Context Managers (with, __enter__, __exit__)
+
+Type Hinting (typing module)
+
+*args, **kwargs deep dive
+
+🔺 10. Python Data Handling
+JSON, CSV
+
+collections: Counter, defaultdict, namedtuple
+
+itertools, functools
+
+🧪 11. Testing
+assert statements
+
+Unit testing with unittest or pytest
+
+Mocking
+
+🧰 12. Tools & Environments
+Virtual environments (venv, pipenv)
+
+Using pip, requirements.txt
+
+IDEs and linters (VS Code, Pylint, Black)
+
+🔄 13. Concurrency & Parallelism
+Multithreading (threading)
+
+Multiprocessing (multiprocessing)
+
+AsyncIO (async, await)
+
+🧠 14. Interview-Specific Practice
+Coding patterns (two pointers, sliding window, recursion, etc.)
+
+Time and space complexity analysis
+
+Practice on platforms: Leetcode, HackerRank, etc.
+
+OOP design problems
+
+System design basics (if required)

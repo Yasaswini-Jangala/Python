@@ -1,0 +1,60 @@
+SDET -> Software Development 
+
+Relative Path -> Relative to Current Working Directory
+	../backup/file.txt
+
+Absolute Path -> Full Path from the Root Directory
+	C:/User/admin/Downloads/file.txt
+
+Shutil
+------
+It is a module in python is a part of Standard library an dis used for high-level file operations such as copying, moving, deleting and achieving files and directories. 
+
+	shutil.copy(src, dst) -> copies a file
+	shutil.copy2(src, dst) -> copies a file, metadata (timestamps)
+	shutil.copytree(src, dst) -> recursively copies an entire directory tree
+	shutil.move(src, dst) -> moves a file or directory from source to destination
+	shutil.rmtree(path) -> delleets an entire directory tree 
+	shutil.make_archieve(base_name, format, root_dir) -> creates a compressed archive (zip, tag)
+	shutil.disk_usage(pat) -> returns disk usage statistics (total, used, free)
+	shutil.unpack_archieve(filename,extract_dir) -> etracy an archieve
+
+
+Exception Handling
+------------------
+
+Unit Testing:
+-------------
+
+Unit Testing in Python (unittest)
+
+  Testing individual units or functions to ensure they work correctly.
+
+setUp():
+  Runs before each test method.
+  Used to initialize variables, objects, or test environment.
+
+tearDown():
+  Runs after each test method.
+  Used to clean up resources or reset state.
+
+AAA Pattern (Arrange – Act – Assert):
+  Arrange: Prepare test data and setup.
+  Act: Call the function or method under test.
+  Assert: Verify the result or behavior.
+
+Common Assertions:
+  assertEqual(a, b)         -> Passes if a == b
+  assertNotEqual(a, b)      -> Passes if a != b
+  assertTrue(x)             -> Passes if x is True
+  assertFalse(x)            -> Passes if x is False
+  assertIsNone(x)           -> Passes if x is None
+  assertIsNotNone(x)        -> Passes if x is not None
+  assertRaises(Exception)   -> Checks if code raises the expected exception
+
+Command to run tests:
+  python -m unittest discover
+
+Options:
+  -s <directory>    -> Start directory (default: current directory)
+  -p <pattern>      -> Pattern to match test files (default: test*.py)

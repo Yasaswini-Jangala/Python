@@ -1,0 +1,151 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+# 1. What is Git & Why Git?
+
+## What is Git?
+
+Git is a **distributed version control system (DVCS)** used to manage source code history efficiently across teams and machines.
+Unlike centralized systems, Git stores the entire project history on every developer’s machine, allowing full-featured offline work.
+
+## Why Git?
+
+Benefit                | What it means in practice                         | Git Command  
+-----------------------|---------------------------------------------------|-----------------------------
+Work offline           | Commit, view diffs, or create branches anytime    | git commit -m "Fix typo"
+Cheap branching        | Create and switch branches in milliseconds        | git switch -c feature/login
+Safe experimentation   | Test new features without harming main code       | git reset --hard HEAD~1
+Audit and traceability | Know who changed what and why                     | git log -p
+
+Real-world scenario:
+--------------------
+A team of 5 developers is building a food delivery app:
+
+- **Main branch:** always has production-ready code.
+- Each developer works on a **feature branch** (like `feature/cart`, `feature/payment`).
+- When a feature is ready, they push to GitHub and open a **pull request**.
+- After review and passing tests, it’s merged into `main`.
+
+This workflow prevents code clashes, makes teamwork smooth, and keeps production safe.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 2. What is a Version-Control System (VCS)?
+
+A VCS records every change to your codebase so you can  
+• **Rewind** to any previous state  
+• **Compare** versions line-by-line  
+• **Collaborate** without emailing zip files  
+
+Git, Mercurial, and Subversion are VCSs; Git is by far the most popular.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 3. Collaborators: can they change code?
+
+Role on GitHub      | Push access? | Typical use case
+--------------------|--------------|-----------------
+Owner / Maintainer  | ✅           | Full control
+Collaborator        | ✅           | Team members push directly
+External contributor| ❌           | Must fork, then open PR
+
+So collaborators **can** push; outsiders **fork** the repo, then open PRs.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 4. git fetch vs git clone vs git pull
+
+Command                    | What it does                                                           | Example
+---------------------------|------------------------------------------------------------------------|------------------------------
+git clone <url>            | First-time copy of an entire remote repo (code + history).             | git clone https://github.com/acme/shop.git
+git fetch                  | Download new commits from a remote **without merging**.                | git fetch origin
+git pull                   | `git fetch` + merge/rebase: download **and** integrate into branch.    | git pull --rebase
+
+Scenario:  
+Before starting your day you run `git fetch`, inspect remote changes with  
+`git log HEAD..origin/main`, then decide when to `git pull`.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 5. What is a branch and why use it?
+
+A branch is a movable pointer to a commit that lets you develop a feature or fix in isolation.
+
+    git switch -c feature/pdf-export   # create & check out
+    code
+    git commit
+    git push -u origin feature/pdf-export
+
+Why needed: parallel work, code review via PRs, CI/CD pipelines per branch.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 6. How to push code to GitHub
+
+    git init                         # if not already a repo
+    git remote add origin https://github.com/user/project.git
+    git add .
+    git commit -m "Implement invoice email"
+    git push -u origin <branch-name> # first push; later just `git push`
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 7. What is a Pull Request (PR)?
+
+A PR asks maintainers to pull your branch into theirs (usually into `main`).  
+It bundles code, commit history, a diff, discussion, CI results, and approvals.
+
+Flow: push branch → open PR → reviews/tests → merge → (optionally) delete branch.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 8. Merge and merge conflict
+
+Term            | Meaning                                          | Command / Example
+----------------|--------------------------------------------------|-------------------
+Merge           | Combine histories creating a merge commit        | git merge feature/search-ui
+Merge conflict  | Git can’t auto-reconcile edits to same lines     | Resolve `<<<<<<<`, `git add`, `git commit`
+
+Conflict scenario:  
+Dev A renames `auth.js` to `login.js` on `main`; Dev B edits `auth.js` on `feature/oauth`.  
+When B merges, Git can’t find `auth.js`; B moves the edit to `login.js` and commits.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 9. Difference between main and other branches
+
+Branch        | Purpose                     | Deployment stage
+--------------|-----------------------------|------------------
+main          | Stable, release-ready code  | Production
+develop       | Integrate completed feats   | Staging
+feature/*     | Individual tasks            | —
+hotfix/*      | Urgent production fixes     | Branched off `main`
+
+Real-time example:  
+A SaaS company keeps `main` always deployable. Feature teams branch off `develop`.  
+Urgent CVE fix goes `hotfix/cve-2025-1234` → PR → fast-forward merge to `main`, then cherry-picked into `develop`.
+
+# Cheat-sheet of key commands
+
+    # clone project
+    git clone <url>
+    
+    # create & switch to a branch
+    git switch -c feature/checkout
+    
+    # stage and commit
+    git add .
+    git commit -m "Add checkout API"
+    
+    # push branch
+    git push -u origin feature/checkout
+    
+    # catch up with remote changes
+    git fetch
+    git rebase origin/main
+    
+    # open PR on GitHub (web), then after approval:
+    git switch main
+    git pull               # fast-forward main first
+    git merge --no-ff feature/checkout
+    git push origin main
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
